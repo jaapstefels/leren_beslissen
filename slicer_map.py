@@ -4,7 +4,7 @@ in_path = '/Users/jaap/Desktop/leren_beslissen/'
 input_filename = 'top10nl_wegvlak_amersfoort.tif'
 
 out_path = '/Users/jaap/Desktop/leren_beslissen/map_data_1024_tif/'
-output_filename = 'tile_'
+output_filename = 'tile'
 
 tile_size_x = 1024
 tile_size_y = 1024
