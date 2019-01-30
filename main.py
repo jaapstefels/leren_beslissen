@@ -53,8 +53,8 @@ def main():
 	cut, lr_cut = model_meta[f]
 
 	if args.mode == 'train':
-		if args.build_dataset:
-			new_base_path = convert_and_resize(args.data_dir)
+		# if args.build_dataset:
+		# 	new_base_path = convert_and_resize(args.data_dir)
 		
 		new_base_path = 'mass_roads_new'
 		train_x, train_y, valid_x, valid_y, test_x, test_y \
@@ -87,7 +87,9 @@ def main():
 		learn.freeze_to(1)
 		learn.load(os.path.join(cwd,  args.model_dir + '/base'))
 		print ('Started Training...')
+		print("50%")
 		learn.fit(args.learning_rate, args.num_epochs, cycle_len=args.cycle_len, use_clr=(20,4))
+		print("75%")
 		learn.save(os.path.join(cwd, args.model_dir + '/1024-Mnih-own'))
 
 	elif args.mode == 'test':
