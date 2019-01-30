@@ -61,7 +61,7 @@ def main():
 					= get_file_list(os.path.join(cwd, new_base_path))
 		
 		PATH = Path(os.path.join(cwd, new_base_path))
-		img_size = 1024
+		img_size = 1500
 		batch_size = 2
 		aug_tfms = []
 
