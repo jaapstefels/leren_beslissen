@@ -59,7 +59,7 @@ def main():
 		if args.build_dataset:
 		 	new_base_path = convert_and_resize(args.data_dir)
 		
-		new_base_path = 'mass_roads_new'
+		new_base_path = 'mass_roads_png'
 		train_x, train_y, valid_x, valid_y, test_x, test_y \
 					= get_file_list(os.path.join(cwd, new_base_path))
 		
