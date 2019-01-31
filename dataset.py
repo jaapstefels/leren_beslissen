@@ -10,12 +10,12 @@ from fastai.dataset import *
 def convert_satellite_img(old_path, new_path, i):
     input_file = '{}/{}.tif'.format(old_path, i)
     output_file = '{}/{}.png'.format(new_path, i)
-    Image.open(input_file).save(output_file)
+    Image.open(input_file).resize((1024,1024)).save(output_file)
 
 def convert_mask_img(old_path, new_path, i):
     input_file = '{}/{}.tif'.format(old_path, i)
     output_file = '{}/{}.png'.format(new_path, i)
-    Image.open(input_file).save(output_file)
+    Image.open(input_file).resize((1024,1024)).save(output_file)
 
 def convert_and_resize(base_path='mass_roads', new_base_path = 'mass_roads_new'
 ):
@@ -57,11 +57,11 @@ def convert_and_resize(base_path='mass_roads', new_base_path = 'mass_roads_new'
 	test_satellite = os.path.join(base_path, "test/sat")
 	test_mask = os.path.join(base_path, "test/map")
 
-	train_satellite_files = glob(os.path.join(train_satellite, "*.tif"))
+	train_satellite_files = glob(os.path.join(train_satellite, "*.tiff"))
 	train_satellite_ids = [s[len(train_satellite)+1:-5] for s in train_satellite_files]
-	valid_satellite_files = glob(os.path.join(valid_satellite, "*.tif"))
+	valid_satellite_files = glob(os.path.join(valid_satellite, "*.tiff"))
 	valid_satellite_ids = [s[len(valid_satellite)+1:-5] for s in valid_satellite_files]
-	test_satellite_files = glob(os.path.join(test_satellite, "*.tif"))
+	test_satellite_files = glob(os.path.join(test_satellite, "*.tiff"))
 	test_satellite_ids = [s[len(test_satellite)+1:-5] for s in test_satellite_files]
 
 	train_mask_files = glob(os.path.join(train_mask, "*.tif"))
