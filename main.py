@@ -39,7 +39,7 @@ def main():
 			help='Learning Rate')
 	parser.add_argument('--model_dir', type=str, default='models', \
 			help='Path to the complete trained model file(.h5)')
-	parser.add_argument('--num_epochs', type=int, default='1', \
+	parser.add_argument('--num_epochs', type=int, default='500', \
 			help='Number of epochs')
 	parser.add_argument('--cycle_len', type=int, default='2', \
 			help='Cycle Length')
