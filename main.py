@@ -1,8 +1,19 @@
+import argparse
+import json
 import os
 import sys
-import argparse
+from pathlib import Path
+
 import torch
 import torch._utils
+from PIL import Image
+
+from dataset import *
+from fastai.conv_learner import *
+from fastai.dataset import *
+from helper import *
+from model import *
+
 try:
     torch._utils._rebuild_tensor_v2
 except AttributeError:
@@ -12,14 +23,6 @@ except AttributeError:
         tensor._backward_hooks = backward_hooks
         return tensor
     torch._utils._rebuild_tensor_v2 = _rebuild_tensor_v2
-from dataset import *
-from helper import *
-from model import *
-from fastai.conv_learner import *
-from fastai.dataset import *
-from pathlib import Path
-import json
-from PIL import Image
 
 sys.path.append('./fastai')
 
@@ -39,7 +42,7 @@ def main():
 			help='Learning Rate')
 	parser.add_argument('--model_dir', type=str, default='models', \
 			help='Path to the complete trained model file(.h5)')
-	parser.add_argument('--num_epochs', type=int, default='1', \
+	parser.add_argument('--num_epochs', type=int, default='20', \
 			help='Number of epochs')
 	parser.add_argument('--cycle_len', type=int, default='2', \
 			help='Cycle Length')
@@ -87,10 +90,9 @@ def main():
 		learn.freeze_to(1)
 		learn.load(os.path.join(cwd,  args.model_dir + '/base'))
 		print ('Started Training...')
-		print("50%")
 		learn.fit(args.learning_rate, args.num_epochs, cycle_len=args.cycle_len, use_clr=(20,4))
-		print("75%")
 		learn.save(os.path.join(cwd, args.model_dir + '/1024-Mnih-own'))
+		print('training complete')
 
 	elif args.mode == 'test':
 		PATH = Path('./')
