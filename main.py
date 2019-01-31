@@ -39,7 +39,7 @@ def main():
 			help='Learning Rate')
 	parser.add_argument('--model_dir', type=str, default='models', \
 			help='Path to the complete trained model file(.h5)')
-	parser.add_argument('--num_epochs', type=int, default='500', \
+	parser.add_argument('--num_epochs', type=int, default='150', \
 			help='Number of epochs')
 	parser.add_argument('--cycle_len', type=int, default='2', \
 			help='Cycle Length')
@@ -87,10 +87,9 @@ def main():
 		learn.freeze_to(1)
 		learn.load(os.path.join(cwd,  args.model_dir + '/base'))
 		print ('Started Training...')
-		print("50%")
 		learn.fit(args.learning_rate, args.num_epochs, cycle_len=args.cycle_len, use_clr=(20,4))
-		print("75%")
 		learn.save(os.path.join(cwd, args.model_dir + '/1024-Mnih-own'))
+		print('training complete')
 
 	elif args.mode == 'test':
 		PATH = Path('./')
