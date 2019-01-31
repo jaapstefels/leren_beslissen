@@ -42,7 +42,7 @@ def main():
 			help='Learning Rate')
 	parser.add_argument('--model_dir', type=str, default='models', \
 			help='Path to the complete trained model file(.h5)')
-	parser.add_argument('--num_epochs', type=int, default='20', \
+	parser.add_argument('--num_epochs', type=int, default='200', \
 			help='Number of epochs')
 	parser.add_argument('--cycle_len', type=int, default='2', \
 			help='Cycle Length')
@@ -113,7 +113,7 @@ def main():
 		denorm = md.trn_ds.denorm
 		
 		learn = ConvLearner(md, models)
-		learn.load(os.path.join(cwd, args.model_dir + '/1024-Mnih-Best'))
+		learn.load(os.path.join(cwd, args.model_dir + '/1024-Mnih-own'))
 		
 		x, _ = next(iter(md.trn_dl))
 		start = time.time()
