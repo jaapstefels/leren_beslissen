@@ -15,7 +15,7 @@ chmod 777 conda.sh
 
 ```bash
 git clone https://github.com/jaapstefels/leren_beslissen.git
-cd RoadNetworkExtraction-MoveHack/
+cd leren_beslissen
 ```
 
 2. The project requires the fastai library. To install it, simply run the setup.sh script. (OPTIONAL: The default installation is for CPU. To install for GPU, in setup.sh file, change line 5 i.e conda env update -f environment-cpu.yml
