@@ -1,18 +1,3 @@
-## Table of Contents
-
-0. [About](#about)
-0. [Installation](#installation)
-0. [Quick start](#quick-start)
-0. [References](#references)
-
-## About
-
-In this work, we implement the U-Net segmentation architecture on the Mnih et. al. Massachusetts Roads Dataset for the task of road network extraction. The trained network achieves a mask accuracy of 95% on the test set. The network was trained on AWS P2.x instance.
-Inference time on a single K80 Tesla GPU(AWS P2.x instance) is 0.28 seconds and on CPU is 6 seconds.
-
-<p align="center">
-  <img width="460" height="300" src="assets/u-net.png">
-</p>
 
 ## Installation
 
@@ -29,7 +14,7 @@ chmod 777 conda.sh
 1. Clone the repo
 
 ```bash
-git clone https://github.com/akshaybhatia10/RoadNetworkExtraction-MoveHack.git
+git clone https://github.com/jaapstefels/leren_beslissen.git
 cd RoadNetworkExtraction-MoveHack/
 ```
 
@@ -59,14 +44,7 @@ For GPU version, run:
 source activate fastai
 ```
 
-To train the network, proceed with step 3 and then [Quick start](#train). To test using the pretrained model, simply skip to [Quick start](#test).
 
-3. Download the dataset from [here](http://academictorrents.com/details/3b17f08ed5027ea24db04f460b7894d913f86c21) or [here](https://www.cs.toronto.edu/~vmnih/data/). It is recommended to download the dataset using the torrent link since it downloads the files in the appropriate directories.
-
-
-## Quick start
-
-You have 2 options-
 
 ### Train
 
@@ -148,10 +126,3 @@ To adjust the amount of epoch runned for the training edit the number for "--num
 
 
 This will output 3 different images in the current working directory- a 1024x1024 version of original image, 1024x1024 generated mask image(output of the system), 1024x1024 mask overlayed on original image.
-
-
-## References 
-
-- Olaf Ronneberger, Philipp Fischer, Thomas Brox. U-Net: Convolutional Networks for Biomedical Image Segmentation. Medical Image Computing and Computer-Assisted Intervention (MICCAI), Springer. 2015.
-- Volodymyr Mnih. Machine Learning for Aerial Image Labeling. University of Toronto. 2013.
-- Jeremy Howard and others. fastai. GitHub. 2018.
